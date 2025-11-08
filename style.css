@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2rem;
+  background: #121212;
+  color: #eee;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.on {
+  background: #0f0;
+  color: #000;
+}
+
+.off {
+  background: #f33;
+  color: #fff;
+}
+
+.box {
+  background: #1e1e1e;
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
