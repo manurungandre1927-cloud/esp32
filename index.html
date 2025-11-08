@@ -1,26 +1,23 @@
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-<script>
-const client = mqtt.connect("wss://broker.hivemq.com:8000/mqtt");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Andre IoT Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>ESP32 IoT Dashboard</h1>
 
-client.on("connect", () => {
-  console.log("connected!");
-  client.subscribe("iot/andre/temp");
-});
+  <div class="box">
+    <h2>Suhu: <span id="temp">--</span> °C</h2>
+    <h2>Kelembapan: <span id="hum">--</span> %</h2>
 
-client.on("message", (topic, msg) => {
-  if (topic === "iot/andre/temp") {
-    document.getElementById("temp").innerText = msg.toString() + " °C";
-  }
-});
+    <button class="on" id="btnOn">Kipas ON</button>
+    <button class="off" id="btnOff">Kipas OFF</button>
 
-function fanOn() {
-  client.publish("iot/andre/cmd/fan", "ON");
-}
-function fanOff() {
-  client.publish("iot/andre/cmd/fan", "OFF");
-}
-</script>
-
-<h2>🌡️ Suhu: <span id="temp">--</span></h2>
-<button onclick="fanOn()">🔥 ON</button>
-<button onclick="fanOff()">❄️ OFF</button>
+    <p id="status">⏳ Connecting...</p>
+  </div>
+</body>
+</html>
